@@ -3,6 +3,7 @@ package com.tian.article.api.controller;
 import com.tian.article.common.utils.JsonResult;
 import com.tian.article.pojo.Articles;
 import com.tian.article.service.ArticleService;
+import com.tian.article.service.client.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +18,17 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private UserService userService;
+
+
     @GetMapping("/article/{id}")
     public JsonResult getArticleById(@PathVariable Integer id) {
 
+        JsonResult uJ = userService.user();
+
         Articles article = articleService.getArticleById(id);
-        return JsonResult.ok(article);
+        return uJ;
 
     }
 

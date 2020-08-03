@@ -25,9 +25,9 @@ public class ArticleController {
     @GetMapping("/article/{id}")
     public JsonResult getArticleById(@PathVariable Integer id) {
 
-        JsonResult uJ = userService.user();
-
         Articles article = articleService.getArticleById(id);
+        JsonResult uJ = userService.user(2);
+
         return uJ;
 
     }

@@ -16,8 +16,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/user")
-    public JsonResult user() {
-        return JsonResult.ok(userService.getUser(1));
+    @GetMapping("/user/{id}")
+    public JsonResult user(@PathVariable Integer id) {
+        return JsonResult.ok(userService.getUser(id));
     }
 }

@@ -3,10 +3,7 @@ package com.tian.article;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
@@ -14,9 +11,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "com.tian.article.mapper")
 @EnableFeignClients
 public class ArticleApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ArticleApplication.class, args);
     }
-
 }

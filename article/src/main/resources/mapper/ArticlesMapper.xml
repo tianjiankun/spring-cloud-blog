@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tian.article.mapper.ArticlesMapper">
+  <resultMap id="BaseResultMap" type="com.tian.article.pojo.Articles">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="category_id" jdbcType="TINYINT" property="categoryId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="slug" jdbcType="VARCHAR" property="slug" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="is_top" jdbcType="TINYINT" property="isTop" />
+    <result column="views" jdbcType="INTEGER" property="views" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+    <result column="markdown" jdbcType="LONGVARCHAR" property="markdown" />
+    <result column="html" jdbcType="LONGVARCHAR" property="html" />
+  </resultMap>
+</mapper>

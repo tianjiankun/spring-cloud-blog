@@ -28,8 +28,8 @@ public class ArticleController {
     @Autowired
     private UserService userService;
 
-    @Value("${env}")
-    private String env;
+    @Value("${server.port}")
+    private String port;
 
     @GetMapping("/testUserClient/{id}")
     @ApiOperation(value = "测试用户服务", notes = "测试用户服务", httpMethod = "GET")
@@ -44,7 +44,7 @@ public class ArticleController {
     @GetMapping("/config")
     @ApiOperation(value = "测试配置中心", notes = "测试配置中心", httpMethod = "GET")
     public String config() {
-        return env;
+        return port;
     }
 
     @ApiOperation(value = "获取文章列表", notes = "获取文章列表", httpMethod = "GET")

@@ -8,7 +8,6 @@ spring:
           host-key-algorithm: ssh-rsa
           private-key:  cat(~/.ssh/id_ras)
           uri: git@github.com:tianjiankun/blog-config.git
-          basedir: D:/code/java/blog-config
 eureka:
   client:
     service-url:

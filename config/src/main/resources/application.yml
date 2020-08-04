@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          host-key-algorithm: ssh-rsa
+          private-key:  cat(~/.ssh/id_ras)
+          uri: git@github.com:tianjiankun/blog-config.git
+          basedir: D:/code/java/blog-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  undertow:
+    decode-url: true

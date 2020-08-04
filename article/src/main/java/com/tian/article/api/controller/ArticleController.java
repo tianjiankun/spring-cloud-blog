@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,8 @@ public class ArticleController {
     @Autowired
     private UserService userService;
 
+    @Value("${env}")
+    private String env;
 
     @GetMapping("/testUserClient/{id}")
     @ApiOperation(value = "测试用户服务", notes = "测试用户服务", httpMethod = "GET")
@@ -36,6 +39,12 @@ public class ArticleController {
 
         JsonResult uJ = userService.user(id);
         return uJ;
+    }
+
+    @GetMapping("/config")
+    @ApiOperation(value = "测试配置中心", notes = "测试配置中心", httpMethod = "GET")
+    public String config() {
+        return env;
     }
 
     @ApiOperation(value = "获取文章列表", notes = "获取文章列表", httpMethod = "GET")

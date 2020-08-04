@@ -1,4 +1,4 @@
-package com.tian.article.service.client;
+package com.tian.article.client;
 
 import com.tian.article.common.utils.JsonResult;
 import org.springframework.cloud.openfeign.FeignClient;

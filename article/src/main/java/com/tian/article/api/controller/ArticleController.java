@@ -1,6 +1,7 @@
 package com.tian.article.api.controller;
 
 import com.tian.article.common.utils.JsonResult;
+import com.tian.article.message.StreamClient;
 import com.tian.article.pojo.vo.ArticleVO;
 import com.tian.article.service.ArticleService;
 import com.tian.article.client.UserService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,9 @@ public class ArticleController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private StreamClient streamClient;
+
     @Value("${server.port}")
     private String port;
 
@@ -47,6 +52,13 @@ public class ArticleController {
     @ApiOperation(value = "测试配置中心", notes = "测试配置中心", httpMethod = "GET")
     public String config() {
         return port;
+    }
+
+
+    @ApiOperation(value = "测试stream", notes = "测试stream", httpMethod = "GET")
+    @GetMapping("/processStream")
+    public void processStream() {
+        streamClient.output().send(MessageBuilder.withPayload("a").build());
     }
 
     @ApiOperation(value = "获取文章列表", notes = "获取文章列表", httpMethod = "GET")

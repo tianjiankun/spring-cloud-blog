@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          host-key-algorithm: ssh-rsa
+          private-key:  cat(~/.ssh/id_ras)
+          uri: git@gitee.com:tjk888/blog-config.git
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 8080
